@@ -23,5 +23,5 @@ CAN ID: 0x100
 |Byte0  Byte1|Byte2  Byte3|Byte4  Byte5|Byte6  Byte7
 |:---:|:---:|:---:|:---:|
 |Current Engine Speed|Target Speed|Current Throttle Position|None
-|H L|H L|H L|None|
+|High Byte Low Byte|High Byte Low Byte|High Byte Low Byte|None|
 
