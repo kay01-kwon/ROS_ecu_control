@@ -15,3 +15,9 @@ DLC (Data Length Code) = 8
 |READ|0x100(4 byte)|8|
 |Target Vel|0x200(4 byte)|8|
 |Engine Op|0x201(4 byte)|8|
+
+Data Info
+
+CAN ID: 0x100
+| Byte0 | Byte1 | Byte2 | Byte3 | Byte4 | Byte5 | Byte6 | Byte7
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
