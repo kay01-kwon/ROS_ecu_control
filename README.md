@@ -22,10 +22,8 @@ CAN ID: 0x100
 
 |Byte0|Byte1|Byte2|Byte3|Byte4|Byte5|Byte6|Byte7
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Actual Velocity High Byte|Actual Velocity Low Byte|
-|Target Velocity High Byte|Target Velocity Low Byte|
-|Current Throttle Position High Byte|Current Throttle Position Low Byte|
-
+|Actual Velocity|Actual Velocity|Target Velocity|Target Velocity|Current Throttle Position|Current Throttle Position|
+|High Byte|Low Byte|High Byte|Low Byte|High Byte|Low Byte|
 
 
 CAN ID: 0x200
