@@ -39,3 +39,7 @@ CAN ID: 0x201
 |:---:|:---:|:---:|:---:|
 |Start ETC|N.A.|N.A.|N.A.
 | High Byte Low Byte | N.A. | N.A. |N.A.|
+
+High Byte: 0x01 - Engine start
+Low Byte : 0x01 - Engine Throttle Control Enabled
+Low Byte : 0x00 - Engine Throttle Control Disabled
