@@ -28,10 +28,10 @@ CAN ID: 0x100
 
 CAN ID: 0x200
 
-|Byte0  Byte1|Byte2  Byte3|Byte4  Byte5|Byte6  Byte7
-|:---:|:---:|:---:|:---:|
-|Target Velocity|N.A.|N.A.|N.A.
-| High Byte Low Byte | N.A. | N.A. |N.A.|
+|Byte0|Byte1|Byte2|Byte3|Byte4|Byte5|Byte6|Byte7
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Target Velocity|Target Velocity|
+| High Byte| Low Byte | N.A. | N.A. |N.A.|N.A. | N.A. |N.A.|
 
 CAN ID: 0x201
 
