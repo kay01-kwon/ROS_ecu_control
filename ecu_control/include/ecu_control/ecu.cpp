@@ -19,10 +19,10 @@ ECU::ECU()
     can_msg.msg_flags = 0;
 
     sleep(1);
-    cout<<"******RPM Publisher Setup******"<<endl;
+    cout<<"******ActualVel Publisher Setup******"<<endl;
     ActualVel_publisher = nh.advertise<UInt16>("/ActualVel",1);
 
-    cout<<"******Throttle Subscriber Setup"<<endl;
+    cout<<"******TargetVel Subscriber Setup"<<endl;
     TargetVel_subscriber = nh.subscribe("/TargetVel",1,&ECU::TargetVelCallback,this);
 
 
@@ -42,10 +42,20 @@ ECU::ECU()
     sleep(3);
 
     cout<<"******Engine Start******"<<endl;
-    frame.can_id = ENGINE_START_CAN_ID;
+
+    frame.can_id = ENGINE_OP_CAN_ID;
     frame.can_dlc = dlc;
     frame.data[0] = 0x01;
     for(int i = 1; i < dlc;i++)
+        frame.data[i] = 0x00;
+    
+    write(sock_,&frame,sizeof(can_frame));
+
+    frame.can_id = ENGINE_OP_CAN_ID;
+    frame.can_dlc = dlc;
+    frame.data[0] = 0x01;
+    frame.data[1] = 0x01;
+    for(int i = 2; i < dlc;i++)
         frame.data[i] = 0x00;
     
     write(sock_,&frame,sizeof(can_frame));
@@ -98,12 +108,13 @@ void ECU::TargetVelCallback(const UInt16ConstPtr & targetvel_msg)
 
 void ECU::ReadActualVel()
 {
-    UInt16 actual_vel_msg;
+
     recvmsg(sock_,&can_msg,0);
     if(frame_get.can_id = READ_CAN_ID)
-        ActualVel = (uint16_t) ((frame_get.data[0]<<8)|(frame_get.data[1]));
+        ActualVel =  ((frame_get.data[0]<<8)|(frame_get.data[1]));
     actual_vel_msg.data = ActualVel;
     std::cout<<"ActualVel : "<<ActualVel<<endl;
+    std::cout<<std::hex<<(unsigned)frame_get.data[0]<<"  "<<std::hex<<(unsigned)frame_get.data[1];
     ActualVel_publisher.publish(actual_vel_msg);
 }
 

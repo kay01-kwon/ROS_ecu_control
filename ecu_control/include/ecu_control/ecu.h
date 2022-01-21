@@ -61,8 +61,8 @@ class ECU{
 
     const int READ_CAN_ID = 0x100;
     const int TARGET_CAN_ID = 0x200;
-    const int ENGINE_START_CAN_ID = 0x201;
-
+    const int ENGINE_OP_CAN_ID = 0x201;
+    UInt16 actual_vel_msg;
 };
 
 
